@@ -1,0 +1,7 @@
+
+streamlit
+transformers
+pillow
+keybert
+sentence-transformers
+spacy
