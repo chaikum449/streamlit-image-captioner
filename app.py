@@ -13,7 +13,10 @@ st.title("📸 Image Captioning + Keywords Generator (Streamlit Version)")
 
 @st.cache_resource
 def load_models():
+    import spacy.cli
+    spacy.cli.download("en_core_web_sm")  # ✅ เพิ่มบรรทัดนี้
     nlp = spacy.load("en_core_web_sm")
+    
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
     kw_model = KeyBERT()
